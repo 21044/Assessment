@@ -2,17 +2,19 @@
 import time
 
 # line 5 and 6 creates a list to store the questions and answers respectively
-q = ["q1", "q2", "q3", "q4", "q5"] #q1, etc, are temporary
-a = ["a1", "a2", "a3", "a4", "a5"] #a1, etc, are temporary
+q = ["q1", "q2", "q3", "q4", "q5"] #q1, etc, are placeholders
+a = ["a1", "a2", "a3", "a4", "a5"] #a1, etc, are placeholders
+
+amount_correct = 0 
 
 # a function to compare the users inputs and the answers to the questions
 def compare(inp, ans):
   if inp == ans:
     print("Correct!")
+    amount_correct + 1
   else:
     print("Wrong")
 
-# "print("")" will output a given statement to the screen
 print("Hey there!")
 # "time.sleep()" will make the program wait before doing the next step
 time.sleep(0.5)
@@ -26,12 +28,21 @@ while name.isalpha() == False:
 # after the loop ends the program will use the variable in a string
 time.sleep(0.5)
 print("Hello " + name.capitalize())
+print("I will begin to ask you some questions about ")
 
 # "counter" will go up each time the loop runs through, after "counter" is above 4 it will stop looping
 counter = 0
 while counter <= 4:
   # asks the user a question, each time the loop runs through the number of the list increases which asks a new question
-  ques_input = input(q[counter] )
-  # calls the function
-  compare(ques_input, a[counter])
+  print(q[counter])
+  user_answer = input("Please Input Your Answer: ")
+  # calls the function "compare()"
+  compare(user_answer, a[counter])
   counter += 1
+
+if amount_correct == 5:
+  print("Well done, you got them all correct!")
+if amount_correct == 0:
+  print("Oh no, you didn't get any correct...")
+else:
+  print("Good job, you got " + amount_correct + " Correct")
