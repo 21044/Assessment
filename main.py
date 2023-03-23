@@ -30,7 +30,7 @@ time.sleep(1)
 name = input("What is your name? ")
 
 # makes a loop which will only run when the variable "name" has any numbers or symbols in it
-while name.isalpha() == False:
+if name.isalpha() == False:
   name = input("That is an invalid name, Please enter a proper name. ")
 # after the loop ends the program will use the variable in a string
 time.sleep(0.5)
@@ -38,6 +38,7 @@ print("Hello " + name.capitalize())
 time.sleep(0.5)
 print("\n")
 print("I am going to ask you some questions about Python")
+time.sleep(1)
 print('All have no special characters, such as ", (, !, etc')
 time.sleep(0.5)
 print("Lets begin")
@@ -59,6 +60,7 @@ while counter <= len(q) - 1:
   compare(user_answer, a[counter])
   counter += 1
 
+time.sleep(0.5)
 # checks if the amount of correct answers is equal to 5
 if amount_correct == 5:
   print("Well done " + name.capitalize() + "! You got them all correct!")
