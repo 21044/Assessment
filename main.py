@@ -4,16 +4,18 @@ import time
 amount_correct = 0
 
 # line 5 and 6 creates a list to store the questions and answers respectively
-q = ["q1", "q2", "q3", "q4", "q5"] #q1, etc, are placeholders
-a = ["a1", "a2", "a3", "a4", "a5"] #a1, etc, are placeholders
+q = ["Which statement do you use to output a message to the screen?", "q2", "q3", "q4", "q5"]
+a = ["print", "a2", "a3", "a4", "a5"]
 
 # a function to compare the users inputs and the answers to the questions
 def compare(inp, ans):
   if inp == ans:
+    time.sleep(0.5)
     print("Correct!")
     global amount_correct
     amount_correct += 1
   else:
+    time.sleep(0.5)
     print("Wrong")
     
 
@@ -35,6 +37,7 @@ print("Hello " + name.capitalize())
 time.sleep(0.5)
 print("\n")
 print("I am going to ask you some questions about Python")
+print('All have no special characters, such as ", (, !, etc')
 time.sleep(0.5)
 print("Lets begin")
 time.sleep(0.5)
@@ -45,14 +48,22 @@ while counter <= len(q) - 1:
   # asks the user a question, each time the loop runs through the number of the list increases which asks a new question
   print(q[counter])
   print("\n")
-  user_answer = input("Answer: ")
+  time.sleep(0.5)
+  user_answer = input("Answer: ").lower()
+  if user_answer.isalpha() == False:
+    user_answer = input("Please do not use special characters, please try again. ")
   # calls the function "compare()"
   compare(user_answer, a[counter])
   counter += 1
 
+# checks if the amount of correct answers is equal to 5
 if amount_correct == 5:
   print("Well done " + name.capitalize() + "! You got them all correct!")
+# checks if the amount of correct answers is equal to 0
 if amount_correct == 0:
   print("Oh no, you didn't get any correct...")
+# checks if the amount of correct answers is within 1 to 4
 if amount_correct in range(1,4):
   print("Good job " + name.capitalize() + " you got " + str(amount_correct) + " questions correct!")
+
+print("Thank you for playing!")
